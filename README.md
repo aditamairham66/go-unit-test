@@ -20,3 +20,8 @@ go test -v
 ```go
 go test -v -run=NameFunctionTest
 ```
+
+### RUN UNIT SUB TEST JUST ONE
+```go
+go test -v -run=NameFunctionTest/NameSubTest
+```

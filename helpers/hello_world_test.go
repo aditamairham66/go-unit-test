@@ -5,7 +5,23 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 )
+
+func TestSubTest(t *testing.T) {
+	t.Run("Eko", func(t *testing.T) {
+		result := HelloWorld("Eko")
+		require.Equal(t, "Hello World Eko", result, "Result must be 'Hello World Eko'")
+	})
+	t.Run("Kurniawan", func(t *testing.T) {
+		result := HelloWorld("Kurniawan")
+		require.Equal(t, "Hello World Kurniawan", result, "Result must be 'Hello World Kurniawan'")
+	})
+	t.Run("Khannedy", func(t *testing.T) {
+		result := HelloWorld("Khannedy")
+		require.Equal(t, "Hello World Khannedy", result, "Result must be 'Hello World Khannedy'")
+	})
+}
 
 func TestMain(m *testing.M) {
 	// before
