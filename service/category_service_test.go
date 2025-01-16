@@ -1,6 +1,7 @@
 package service
 
 import (
+	"fmt"
 	"go-unit-test/entity"
 	"go-unit-test/repository"
 	"testing"
@@ -16,6 +17,8 @@ func TestCategoryService_GetNotFound(t *testing.T) {
 	categoryRepository.Mock.On("FindById", "1").Return(nil)
 
 	category, err := categoryService.Get("1")
+	fmt.Println(category)
+	fmt.Println(err)
 	assert.Nil(t, category)
 	assert.NotNil(t, err)
 }
@@ -28,7 +31,7 @@ func TestCategoryService_GetSuccess(t *testing.T) {
 	categoryRepository.Mock.On("FindById", "2").Return(category)
 
 	result, err := categoryService.Get("2")
-	println(category.Id, result.Id, category.Name, result.Name)
+	fmt.Println(category.Id, result.Id, category.Name, result.Name)
 
 	assert.Nil(t, err)
 	assert.NotNil(t, result)
